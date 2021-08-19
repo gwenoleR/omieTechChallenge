@@ -21,7 +21,7 @@ describe('Search a Omie product on catalogue', () => {
 
   it('should show a list of products when search string is not empty', async () => {
     await element(by.id('searchBar')).tap();
-    await element(by.id('searchBar')).typeText('a');
+    await element(by.id('searchBar')).typeText('cafe');
 
     await expect(element(by.id('emptyMessage'))).not.toBeVisible();
     await expect(element(by.id('productList'))).toBeVisible();
