@@ -1,6 +1,10 @@
 import React from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList, Text, View, ViewStyle } from 'react-native';
 import { ProductListProps } from './ProductListProps';
+
+const ITEM: ViewStyle = {
+  padding: 8,
+};
 
 export const ProductList: React.FC<ProductListProps> = ({
   products,
@@ -11,7 +15,11 @@ export const ProductList: React.FC<ProductListProps> = ({
       testID={testID}
       data={products}
       keyExtractor={item => item}
-      renderItem={({ item }) => <Text>{item}</Text>}
+      renderItem={({ item }) => (
+        <View style={ITEM}>
+          <Text>{item}</Text>
+        </View>
+      )}
     />
   );
 };

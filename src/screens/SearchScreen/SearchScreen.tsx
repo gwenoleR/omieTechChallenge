@@ -1,9 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View, ViewStyle } from 'react-native';
 import { ProductList } from '../../component/ProductList/ProductList';
 import { SearchBar } from '../../component/SearchBar/SearchBar';
 import omieProducts from '../../data/omie_products.json';
 import { findMatchingProduct } from './SearchScreen.service';
+
+const CONTAINER: ViewStyle = {
+  marginHorizontal: 16,
+};
 
 export const SearchScreen: React.FC = () => {
   const [searchString, setSearchString] = React.useState<string>('');
@@ -25,12 +29,12 @@ export const SearchScreen: React.FC = () => {
   }, [products, searchString]);
 
   return (
-    <>
+    <View style={CONTAINER}>
       <SearchBar onTextChange={setSearchString} />
       {!searchString && <Text testID="emptyMessage">No product found.</Text>}
-      {!!searchString && (
+      {!!searchString && products.length > 0 && (
         <ProductList testID="productList" products={searchResult} />
       )}
-    </>
+    </View>
   );
 };
