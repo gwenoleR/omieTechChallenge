@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
-import { SearchScreen } from './src/screens/SearchScreen';
+import './extensions';
+import { SearchScreen } from './src/screens/SearchScreen/SearchScreen';
 
 const App = () => {
   return (
